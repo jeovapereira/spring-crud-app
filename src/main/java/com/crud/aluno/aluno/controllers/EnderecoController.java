@@ -14,10 +14,10 @@ import com.crud.aluno.aluno.service.AlunoService;
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/aluno")
-public class AlunoController {
+public class EndecoController {
 
 	@Autowired
-	private AlunoService alunoService;
+	private EndecoService alunoService;
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> buscarTodosAlunos() throws Exception {	
@@ -29,5 +29,3 @@ public class AlunoController {
 		return ResponseEntity.ok(alunoService.buscarAlunoPorCodigo(codigoAluno));
 	}
 }
-
-

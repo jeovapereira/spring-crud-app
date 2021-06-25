@@ -1,6 +1,7 @@
 package com.crud.aluno.aluno.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,16 @@ public class AlunoService {
 		List<AlunoEntity> entities = alunoRepository.buscarTodosAlunos();
 		
 		return entities.stream().map(AlunoResponse::new).collect(Collectors.toList());
+	}
+
+	public AlunoResponse buscarAlunoPorCodigo(Integer codigoAluno) throws Exception {
+		Optional<AlunoEntity> entityOp = alunoRepository.buscarAlunoPorCodigo(codigoAluno);
+		if (entityOp.isPresent()) {
+			AlunoEntity entity = entityOp.get();
+			return new AlunoResponse(entity);
+		} 
+		
+		return null;
 	}
 
 }
