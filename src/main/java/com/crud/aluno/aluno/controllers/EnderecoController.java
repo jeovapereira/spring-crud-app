@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crud.aluno.aluno.service.AlunoService;
+import com.crud.aluno.aluno.service.EnderecoService;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/aluno")
-public class EndecoController {
+@RequestMapping(value = "/endereco")
+public class EnderecoController {
 
 	@Autowired
-	private EndecoService alunoService;
+	private EnderecoService enderecoService;
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> buscarTodosAlunos() throws Exception {	
-		return ResponseEntity.ok(alunoService.buscarTodosAlunos());
+	public ResponseEntity<?> buscarTodosEndereco() throws Exception {	
+		return ResponseEntity.ok(enderecoService.buscarTodosEndereco());
 	}
 	
 	@GetMapping(value="/{codigo}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> buscarAlunoPorCodigo(@PathVariable("codigo") final Integer codigoAluno) throws Exception {	
-		return ResponseEntity.ok(alunoService.buscarAlunoPorCodigo(codigoAluno));
+	public ResponseEntity<?> buscarEnderecoPorCodigo(@PathVariable("codigo") final Integer codigoEndereco) throws Exception {	
+		return ResponseEntity.ok(enderecoService.buscarEnderecoPorCodigo(codigoEndereco));
 	}
 }
